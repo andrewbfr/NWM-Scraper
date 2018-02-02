@@ -1,1 +1,1 @@
-A Web Scraper built focusing on news articles using Node, Express, Handlebars, MongoDB and Cheerio.
+A Web Scraper using Node, Express, Handlebars, MongoDB and Cheerio built to focus on news articles.
