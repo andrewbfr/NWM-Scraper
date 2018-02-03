@@ -26,10 +26,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+// Set default/homepage layout template
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// Import routes and give the server access to them.
+//
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app)
+
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/21digg", {
+mongoose.connect("mongodb://localhost/counterpunchDB", {
 });
 
 // Routes
@@ -37,12 +48,12 @@ mongoose.connect("mongodb://localhost/21digg", {
 // A GET route for scraping the echojs website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
-  axios.get("http://www.digg.com/").then(function(response) {
+  axios.get("http://www.counterpunch.org/").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article h2").each(function(i, element) {
+    $("div.left-sidebar-title").each(function(i, element) {
       // Save an empty result object
       var result = {};
 
