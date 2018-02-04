@@ -12,7 +12,9 @@ module.exports = function(app){
         res.render("list");
       });
       // loads the list page and awaits scrape
-      // app.get("/list", function(req, res) {
-      // });
+      app.get("/list", function(req, res) {
+        res.render("list");
+
+      });
       
 };
