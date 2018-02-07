@@ -13,7 +13,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 
 // Configure middleware
@@ -34,7 +34,12 @@ app.set("view engine", "handlebars");
 // Import routes and give the server access to them.
 //
 require("./routes/api-routes.js")(app);
-require("./routes/html-routes.js")(app)
+// require("./routes/html-routes.js")(app);
+
+// Import routes and give the server access to them.
+var routes = require("./controllers/thisController.js");
+
+app.use(routes);
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
