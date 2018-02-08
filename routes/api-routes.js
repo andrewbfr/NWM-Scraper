@@ -33,13 +33,14 @@ module.exports = function (app) {
             // Create a new Article using the `result` object built from scraping
             db.Article
               .create(result)
-              .then(function(dbArticle) {
-                // If we were able to successfully scrape and save an Article, send a message to the client
-                res.send("Scrape Complete");
-              })
               .catch(function(err) {
                 // If an error occurred, send it to the client
                 res.json(err);
+              })
+              .then(function(dbArticle) {
+                // If we were able to successfully scrape and save an Article, send a message to the client
+                console.log(dbArticle);
+                return res.send("Scrape Complete");
               });
           });
         });

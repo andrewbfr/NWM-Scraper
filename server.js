@@ -54,6 +54,7 @@ router.get("/list", function(req, res) {
     .then(function(dbArticle) {
         // If we were able to successfully find Articles, send them back to the client
         res.json(dbArticle);
+        //I need to get this object into the Handlebars template. I've tried it in three different files, different callback structures, still get errors in Node terminal or empty objects returned to the client's view. Pretty big bug that I haven't been able to get past.
     })
     .catch(function(err) {
         // If an error occurred, send it to the client
