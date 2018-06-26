@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andrewbfr/NYT-Scraper.git"
+    "url": "git+https://github.com/andrewbfr/NWM-Scraper.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andrewbfr/NYT-Scraper/issues"
+    "url": "https://github.com/andrewbfr/NWM-Scraper/issues"
   },
-  "homepage": "https://github.com/andrewbfr/NYT-Scraper#readme",
+  "homepage": "https://github.com/andrewbfr/NWM-Scraper#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
